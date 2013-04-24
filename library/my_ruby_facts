@@ -1,0 +1,25 @@
+#!/usr/bin/ruby
+# WANT_JSON
+
+require 'rubygems'
+require 'json'
+
+# this is a bare minimum example of a 'facts' module that returns some variables into the ansible
+# namespace.  It may not be sufficiently idiomatic and doesn't do a lot of error checking. 
+
+File.open(ARGV[0]) do |fh|
+
+   data = JSON.parse(fh.read())
+
+   x = data['x'].to_i() 
+
+   result = {
+      'ansible_facts' => {
+          'sky'      => 'blue',
+          'squared'  => x * x,
+      }
+   }
+      
+   print JSON.dump(result)
+
+end

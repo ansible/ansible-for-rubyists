@@ -1,0 +1,86 @@
+---
+
+# This is a ruby module demo!  It is a rather silly example that doesn't
+# do anything regarding systems management or software deployment, but is here
+# to show the fundamentals of how to extend Ansible using non-python modules, and how
+# you can easily distribute those modules as well.
+
+# see the github.com/ansible/ansible-examples repository for examples of more
+# best-practices kind of organizational content.  This is just an instructional
+# tech demo.
+
+# First let's select all of our hosts in the inventory.  In our example, there is just
+# one.
+
+- hosts: example_servers
+
+  # it won't hurt anything, but we can turn off Ansible's built-in Python facts if we don't
+  # need them.  Here we'll do it just to show we don't have anything up our sleeve.
+
+  gather_facts: False
+
+  # ok, now for the fun part...
+
+  tasks:
+
+    - name: 'ensure the ruby JSON gem is installed'
+      action: gem name=json state=present
+
+    # you don't have to pass them, but fact modules can take parameters
+    # here is a fact module that returns the square of the input value x
+    # in a variable called 'squared'.
+
+    - name: 'call a custom ruby fact module'
+      action: my_ruby_facts x=7
+
+    # here we pass in a, which should be 49 (7 squared)
+    # and b of 100.  100+49 = 149, so running in debug mode
+    # will show that we returned 149.
+
+    # we are using Jinja2 in templating, which is similar to erb.
+    # this templating system is also used by the 'template' module for placing
+    # contents in remote files.
+
+    - name: 'call our ruby utility module'
+      action: my_ruby_calculator a={{ squared }} b=100
+      register: my_result
+
+    # here's an example of how we can stick conditionals into mainline Ansible runs
+    # and we'll do this to show embedded testing of the values that came back from
+    # the module.
+
+    - name: 'test that things worked as expected'
+      action: debug msg='success, things added up as we expect!'
+      when: my_result.sum == 149
+
+    - name: 'fail if something bad happened'
+      action: fail msg='something bad happened'
+      when: my_result.sum != 149
+
+    - name: 'dynamically group the system by some variables'
+      group_by: key=sky_{{sky}}
+
+# now this is a dumb trick, but select all of the hosts that also returned 'blue' for the value
+# of 'sky' in the fact module above.  This is just a generic Ansible example of dynamic host grouping
+# and is not really about the Ruby example, but shows another useful example of cool things you can
+# do with custom facts.
+
+- hosts: sky_blue
+  gather_facts: False
+
+  tasks:
+
+     - action: shell echo 'the sky is blue on this host'
+
+- hosts: sky_magenta
+  gather_facts: False
+
+  tasks:
+
+     # this won't happen
+
+     - action: shell echo 'oh no, the sky is magenta on this host!'
+
+
+
+
