@@ -18,7 +18,7 @@ File.open(ARGV[0]) do |fh|
       # to raise an error, return failed=True and a msg string.
 
       print JSON.dump({
-          'failed' => True,
+          'failed' => true,
           'msg'    => 'failed to parse inputs x or y'
       })
 
