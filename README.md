@@ -113,7 +113,7 @@ Potential Ansible-core Contributor note:
 Just as a sidenote, modules to be distributed in Ansible core still do need to be Python.  We do this because it would
 be too confusing to have a mix of 5 or 6 different languages in the core and a lot of us are Python developers.
 
-However, we do encourage people to write modules in whatever language you feel like.
+However, we do encourage people to write modules in whatever language they feel like.
 
 Modules in core should look at other modules in core to take advantage
 of common library code support.
