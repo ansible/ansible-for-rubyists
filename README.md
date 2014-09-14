@@ -44,7 +44,7 @@ parameters passed to it.   It should be self explanatory, particularly after you
 Ansible as an end user.  (Maybe you know this already).
 
 Both a facts module and a custom utility module are demoed, showing how you can use custom facts to select a group
-of systems where a certain criteria is true and then do things to those systems, all using native Ruby modules,
+of systems where certain criteria are true and then do things to those systems, all using native Ruby modules,
 run by Ansible.
 
 Facts Modules and Regular Modules
