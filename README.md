@@ -107,8 +107,8 @@ Test.json could contain something like::
 
 In either event, you should see JSON output when you run your program, and it should be free from errors.
 
-Potentional Ansible-core Contributor note:
-==========================================
+Potential Ansible-core Contributor note:
+========================================
 
 Just as a sidenote, modules to be distributed in Ansible core still do need to be Python.  We do this because it would
 be too confusing to have a mix of 5 or 6 different languages in the core and a lot of us are Python developers.
