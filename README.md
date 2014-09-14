@@ -51,7 +51,7 @@ Facts Modules and Regular Modules
 =================================
 
 The ./library/my_facts module is an example fact module written in Ruby.  If you happen to have existing facts
-written for ohai and facter you want to use, you don't even need to do this, as Ansible's normal setup setup will run call
+written for ohai and facter you want to use, you don't even need to do this, as Ansible's normal setup setup will call
 those automatically.
 
 Note that at least facter requires you have the JSON ruby gem installed, and it's not always installed by default.  The
