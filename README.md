@@ -36,7 +36,7 @@ Structure
 In this checkout, you will see a very trivial playbook and a local 'library' directory.  The local modules
 directory is Ansible's way to make it trivial to distribute modules with a playbook.
 
-If you are looking for ways to distribute pieces of playbooks, these are called 'roles', in Ansible.  Modules are pieces of transferrable utility code that make the playbook actually be able to do things on managed systems.  These are covered
+If you are looking for ways to distribute pieces of playbooks, these are called 'roles', in Ansible.  Modules are pieces of transferable utility code that make the playbook actually be able to do things on managed systems.  These are covered
 in the Ansible documentation.
 
 To fire off the super trivial example, just run "make test" and you can look at the Makefile to see the ansible
