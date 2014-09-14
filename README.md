@@ -118,7 +118,7 @@ However, we do encourage people to write modules in whatever language they feel 
 Modules in core should look at other modules in core to take advantage
 of common library code support.
 
-We do encourage you to write your own modules, put them on github, and share them, regardless of what langauge you
+We do encourage you to write your own modules, put them on github, and share them, regardless of what language you
 care to write them in, and we are happy to link to lots of these on the "contrib" pages of the documentation.
 
 Thanks and have fun!
