@@ -6,7 +6,7 @@ Ansible is written in Python, but you can write modules in any language.  Here a
 Documentation
 =============
 
-If you would like to read more about ansible, visit [http://ansible.cc/docs/](http://ansible.cc/docs).
+If you would like to read more about ansible, visit [http://ansible.com/docs/](http://ansible.com/docs).
 
 The docs will help you understand how to use Ansible better, and about it's data-driven configuration language, which
 is YAML based.
@@ -36,7 +36,7 @@ Structure
 In this checkout, you will see a very trivial playbook and a local 'library' directory.  The local modules
 directory is Ansible's way to make it trivial to distribute modules with a playbook.
 
-If you are looking for ways to distribute pieces of playbooks, these are called 'roles', in Ansible.  Modules are pieces of transferrable utility code that make the playbook actually be able to do things on managed systems.  These are covered
+If you are looking for ways to distribute pieces of playbooks, these are called 'roles', in Ansible.  Modules are pieces of transferable utility code that make the playbook actually be able to do things on managed systems.  These are covered
 in the Ansible documentation.
 
 To fire off the super trivial example, just run "make test" and you can look at the Makefile to see the ansible
@@ -44,14 +44,14 @@ parameters passed to it.   It should be self explanatory, particularly after you
 Ansible as an end user.  (Maybe you know this already).
 
 Both a facts module and a custom utility module are demoed, showing how you can use custom facts to select a group
-of systems where a certain criteria is true and then do things to those systems, all using native Ruby modules,
+of systems where certain criteria are true and then do things to those systems, all using native Ruby modules,
 run by Ansible.
 
 Facts Modules and Regular Modules
 =================================
 
 The ./library/my_facts module is an example fact module written in Ruby.  If you happen to have existing facts
-written for ohai and facter you want to use, you don't even need to do this, as Ansible's normal setup setup will run call
+written for ohai and facter you want to use, you don't even need to do this, as Ansible's normal setup setup will call
 those automatically.
 
 Note that at least facter requires you have the JSON ruby gem installed, and it's not always installed by default.  The
@@ -107,18 +107,18 @@ Test.json could contain something like::
 
 In either event, you should see JSON output when you run your program, and it should be free from errors.
 
-Potentional Ansible-core Contributor note:
-==========================================
+Potential Ansible-core Contributor note:
+========================================
 
 Just as a sidenote, modules to be distributed in Ansible core still do need to be Python.  We do this because it would
 be too confusing to have a mix of 5 or 6 different languages in the core and a lot of us are Python developers.
 
-However, we do encourage people to write modules in whatever language you feel like.
+However, we do encourage people to write modules in whatever language they feel like.
 
 Modules in core should look at other modules in core to take advantage
 of common library code support.
 
-We do encourage you to write your own modules, put them on github, and share them, regardless of what langauge you
+We do encourage you to write your own modules, put them on github, and share them, regardless of what language you
 care to write them in, and we are happy to link to lots of these on the "contrib" pages of the documentation.
 
 Thanks and have fun!
